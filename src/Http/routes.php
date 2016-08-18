@@ -9,7 +9,7 @@ $router->group(['as' => 'admin::', 'namespace' => 'PortOneFive\HowToVideos', 'pr
         $router->adminGet('how-to-videos', [
             'as'       => 'how-to-videos.index',
             'icon'     => 'dashicons-format-video',
-            'position' => 4.1,
+            'position' => config('how-to-videos.htv_admin_menu_position'),
             'uses'     => 'Http\Controllers\HowToVideosController@index',
         ]);
 

@@ -7,6 +7,13 @@
 
     <div class="how-to-videos">
         @foreach($videos as $video)
+
+            @if(isset($video->section) && $lastSection != $video->section)
+                <h2>{{ $video->section }}</h2>
+            @elseif(!isset($video->section) && $lastSection != 'MISC')
+                <h2>Misc.</h2>
+            @endif
+
             <div class="video">
 
                 <script src="//fast.wistia.com/embed/medias/{{ $video->hashed_id }}.jsonp" async></script>
@@ -19,8 +26,9 @@
                     </div>
                 </div>
 
-                <h2>{{ $video->name }}</h2>
+                <h3>{{ $video->name }}</h3>
             </div>
+            <?php $lastSection = isset($video->section) ? $video->section : 'MISC'; ?>
         @endforeach
     </div>
 
