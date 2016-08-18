@@ -1,12 +1,13 @@
 <script src="//fast.wistia.com/assets/external/E-v1.js" async></script>
+<link rel="stylesheet" href="/vendor/how-to-videos/assets/css/how-to-videos.css" />
 
-<div class="wrap how-to-videos">
+<div class="wrap">
 
     <h1>How-To Videos</h1>
 
-    <div class="row">
+    <div class="how-to-videos">
         @foreach($videos as $video)
-            <div class="columns small-12 medium-6 large-4">
+            <div class="video">
 
                 <script src="//fast.wistia.com/embed/medias/{{ $video->hashed_id }}.jsonp" async></script>
 
