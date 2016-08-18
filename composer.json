@@ -1,0 +1,20 @@
+{
+  "name": "portonefive/how-to-videos",
+  "description": "",
+  "authors": [
+    {
+      "name": "Nick Hough",
+      "email": "nick@portonefive.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "lara-press/framework": "0.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "PortOneFive\\HowToVideos\\": "src/"
+    }
+  },
+  "minimum-stability": "dev"
+}
