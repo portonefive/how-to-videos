@@ -1,6 +1,6 @@
 {
   "name": "portonefive/how-to-videos",
-  "description": "",
+  "description": "Display a collection of how to videos.",
   "authors": [
     {
       "name": "Nick Hough",
@@ -9,7 +9,8 @@
   ],
   "require": {
     "php": ">=5.4.0",
-    "lara-press/framework": "~0.1@dev"
+    "lara-press/framework": "~0.1@dev",
+    "guzzlehttp/guzzle": "~5.0"
   },
   "autoload": {
     "psr-4": {
