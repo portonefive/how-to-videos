@@ -7,6 +7,12 @@ from a Wistia Project.
 
 `composer require portonefive/how-to-videos`
 
+## Registering the Service Provider
+
+You'll need to add `PortOneFive\HowToVideos\HowToVideosServiceProvider::class`
+to your `config/app.php`, right below the `App\Providers\RouteServiceProvider::class` 
+service provider.        
+
 ## Publishing Configuration Files
 
 In your console you'll run the following command to publish the config,
@@ -17,7 +23,7 @@ view and css files;
 ## Setting Required Config Values
 
 In order to access the Wistia account, you'll to define the 
-`WISTIA_API_KEY` in your config or env file.
+`HTV_WISTIA_API_KEY` in your config or env file.
 
 This can be found under wistia.com > Account > Advanced > API Access.
  
@@ -26,9 +32,14 @@ This can be found under wistia.com > Account > Advanced > API Access.
 3. Check _Read all data_
 4. Click _Create Token_
 
-Next, you'll to define the `WISITIA_PROJECT_ID`, which is the project we 
+Next, you'll to define the `HTV_WISITIA_PROJECT_ID`, which is the project we 
 want to pull videos from. This can be found by navigating to the project 
 you want and copying the id from the url.
 
 For this url, `https://portonefive.wistia.com/projects/5jihj33txi` we
 want `5jihj33txi`. 
+
+## Menu Position
+
+You can also set the WordPress menu position weight in your config or env
+files with the `HTV_ADMIN_MENU_POSITION` key.
