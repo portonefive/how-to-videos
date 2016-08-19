@@ -17,11 +17,6 @@ class HowToVideosController extends AdminPageController
         $this->projectId = config('how-to-videos.htv_wistia_project_id');
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $this->warnIfNoApiKey();
@@ -52,14 +47,14 @@ class HowToVideosController extends AdminPageController
     private function warnIfNoApiKey()
     {
         if ( ! $this->apiKey) {
-            return "You must set the WISTIA_API_KEY in the config or env files.";
+            die("You must set the HTV_WISTIA_API_KEY in the config or env files.");
         }
     }
 
     private function warnIfNoProjectId()
     {
         if ( ! $this->projectId) {
-            return "You must set the WISTIA_PROJECT_ID in the config or env files.";
+            die("You must set the HTV_WISTIA_PROJECT_ID in the config or env files.");
         }
     }
 
