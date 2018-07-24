@@ -27,7 +27,7 @@ class HowToVideosController extends AdminPageController
 
         return view('how-to-videos::how-to-videos', [
             'lastSection' => null,
-            'videos' => $this->project->medias,
+            'videos'      => $this->project->medias,
         ]);
     }
 
@@ -35,9 +35,12 @@ class HowToVideosController extends AdminPageController
     {
         $client = new Client();
 
-        $url = 'https://api.wistia.com/v1/projects/' . $this->projectId . '.json?api_password=' . $this->apiKey;
-
-        $response = $client->get($url);
+        $response = $client->get(
+            'https://api.wistia.com/v1/projects/' . $this->projectId . '.json', [
+            'form_params' => [
+                'api_password' => $this->apiKey,
+            ],
+        ]);
 
         $this->project = json_decode($response->getBody());
 
@@ -46,28 +49,28 @@ class HowToVideosController extends AdminPageController
 
     private function warnIfNoApiKey()
     {
-        if ( ! $this->apiKey) {
-            die("You must set the HTV_WISTIA_API_KEY in the config or env files.");
+        if (!$this->apiKey) {
+            wp_die('The .env file requires HTV_WISTIA_API_KEY.');
         }
     }
 
     private function warnIfNoProjectId()
     {
-        if ( ! $this->projectId) {
-            die("You must set the HTV_WISTIA_PROJECT_ID in the config or env files.");
+        if (!$this->projectId) {
+            wp_die('The .env file requires HTV_WISTIA_PROJECT_ID.');
         }
     }
 
     private function sortMediaBySection()
     {
-        if($this->project->medias){
+        if ($this->project->medias) {
             usort($this->project->medias, [$this, "sortBySection"]);
         }
     }
 
     private function sortBySection($a, $b)
     {
-        if(isset($a->section) && isset($b->section)){
+        if (isset($a->section) && isset($b->section)) {
             return strcmp($a->section, $b->section);
         }
     }

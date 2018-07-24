@@ -17,5 +17,13 @@
       "PortOneFive\\HowToVideos\\": "src/"
     }
   },
-  "minimum-stability": "dev"
+  "extra": {
+    "laravel": {
+      "providers": [
+        "PortOneFive\\HowToVideos\\HowToVideosServiceProvider"
+      ],
+      "aliases": {
+      }
+    }
+  }
 }
