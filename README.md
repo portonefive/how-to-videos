@@ -7,12 +7,6 @@ from a Wistia Project.
 
 `composer require portonefive/how-to-videos`
 
-## Registering the Service Provider
-
-You'll need to add `PortOneFive\HowToVideos\HowToVideosServiceProvider::class`
-to your `config/app.php`, right below the `App\Providers\RouteServiceProvider::class` 
-service provider.        
-
 ## Publishing Configuration Files
 
 In your console you'll run the following command to publish the config,
